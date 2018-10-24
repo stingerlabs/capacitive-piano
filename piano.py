@@ -185,7 +185,7 @@ def handle_img_change(i):
     current_pumpkins_pressed[i] = not current_pumpkins_pressed[i]
     sio.emit('pumpkinsPressed', current_pressed)
 
-def backgroud_thread():
+def background_thread():
     #listen for touch events on 12-key capacitive switch sensor
     while True:
         try:
