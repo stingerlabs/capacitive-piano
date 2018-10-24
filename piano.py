@@ -173,7 +173,6 @@ def stopAllNotes():
     for i in range(12):
         deactivateKey(i)
 
-last_touched = cap.touched()
 print "Switches Ready."
 
 #when GPIO button on pin 20 is pressed (voltage rises from low to high), change mode
@@ -186,6 +185,7 @@ def handle_img_change(i):
     sio.emit('pumpkinsPressed', current_pressed)
 
 def background_thread():
+    last_touched = cap.touched()
     #listen for touch events on 12-key capacitive switch sensor
     while True:
         try:
