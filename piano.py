@@ -178,7 +178,7 @@ print "Switches Ready."
 #when GPIO button on pin 20 is pressed (voltage rises from low to high), change mode
 #GPIO.add_event_detect(20, GPIO.RISING, callback=changeMode) 
 
-current_pressed = [False] * 12;
+current_pumpkins_pressed = [False] * 12;
 
 def handle_img_change(i):
     current_pumpkins_pressed[i] = not current_pumpkins_pressed[i]
