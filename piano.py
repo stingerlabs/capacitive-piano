@@ -263,27 +263,3 @@ if __name__ == '__main__':
 #for i in range(strip.numPixels()):
 #    strip.setPixelColor(i, Color(0,0,0))
 #strip.show()
-
-#listen for touch events on 12-key capacitive switch sensor
-while True:
-    try:
-        current_touched = cap.touched()
-        # Check each pin's last and current state to see if it was pressed or released.
-        for i in range(12):
-            # Each pin is represented by a bit in the touched value.  A value of 1
-            # means the pin is being touched, and 0 means it is not being touched.
-            pin_bit = 1 << i
-            # First check if transitioned from not touched to touched.
-            if current_touched & pin_bit and not last_touched & pin_bit:
-                #print '{0} touched!'.format(i)
-                activateKey(i)
-            # Next check if transitioned from touched to not touched.
-            if not current_touched & pin_bit and last_touched & pin_bit:
-                #print '{0} released!'.format(i)
-                deactivateKey(i)
-        # Update last state and wait a short period before repeating.
-        last_touched = current_touched
-        time.sleep(0.01)
-    except KeyboardInterrupt:
-        GPIO.cleanup()
-        exit()
