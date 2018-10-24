@@ -254,7 +254,6 @@ if __name__ == '__main__':
     else:
         print('Unknown async_mode: ' + sio.async_mode)
 
-=======
 #flash lights when ready
 #for i in range(strip.numPixels()):
 #    strip.setPixelColor(i, Color(255,165,0))
