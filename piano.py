@@ -182,7 +182,7 @@ current_pumpkins_pressed = [False] * 12;
 
 def handle_img_change(i):
     current_pumpkins_pressed[i] = not current_pumpkins_pressed[i]
-    sio.emit('pumpkinsPressed', current_pressed)
+    sio.emit('pumpkinsPressed', current_pumpkins_pressed)
 
 def background_thread():
     last_touched = cap.touched()
