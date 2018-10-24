@@ -18,8 +18,8 @@ app.config['SECRET_KEY'] = 'secret!'
 thread = None
 #import RPi.GPIO as GPIO #for GPIO switch
 
-fluidsynth.init('/usr/share/sounds/sf2/FluidR3_GM.sf2',"alsa")
-#fluidsynth.init('/home/pi/Documents/Halloween Piano/soundFonts/Arachno SoundFont - Version 1.0.sf2',"alsa") #custom sound font sounds slightly better than FluidR3_GM.sf2, but file size is larger
+#fluidsynth.init('/usr/share/sounds/sf2/FluidR3_GM.sf2',"alsa")
+fluidsynth.init('/home/pi/capacitive-piano/arachno.sf2',"alsa") #custom sound font sounds slightly better than FluidR3_GM.sf2, but file size is larger
 
 #assign instruments to separate channel numbers (1 is hammond organ, 2 is steel guitar, etc...)
 fluidsynth.set_instrument(1, 16) #16 hammond organ
