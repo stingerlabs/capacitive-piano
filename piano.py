@@ -16,7 +16,7 @@ app = Flask(__name__)
 app.wsgi_app = socketio.Middleware(sio, app.wsgi_app)
 app.config['SECRET_KEY'] = 'secret!'
 thread = None
-#import RPi.GPIO as GPIO #for GPIO switch
+import RPi.GPIO as GPIO #for GPIO switch
 
 #fluidsynth.init('/usr/share/sounds/sf2/FluidR3_GM.sf2',"alsa")
 fluidsynth.init('/home/pi/capacitive-piano/arachno.sf2',"alsa") #custom sound font sounds slightly better than FluidR3_GM.sf2, but file size is larger
@@ -38,10 +38,10 @@ fluidsynth.set_instrument(12, 88) #fantasia
 #Use Polysynth desktop application to open sf2 files and find instrument and bank numbers
 
 #setup GPIO button as input
-#GPIO.setmode(GPIO.BCM)
-#GPIO.setup(20, GPIO.IN)
-#modeButtonLastPushed = time.time()
-#print "Push Button Ready"
+GPIO.setmode(GPIO.BCM)
+GPIO.setup(20, GPIO.IN)
+modeButtonLastPushed = time.time()
+print "Push Button Ready"
 
 #each mode has a name which is printed to the python terminal output, each mode plays different sounds
 modes = ['96tears', 'steelDrum', 'drumKit', 'techno', 'echoDrops', 'vibraphone', 'xylophone', 'orchestraHit', 'fifthSawWave', 'fantasia']
@@ -176,7 +176,7 @@ def stopAllNotes():
 print "Switches Ready."
 
 #when GPIO button on pin 20 is pressed (voltage rises from low to high), change mode
-#GPIO.add_event_detect(20, GPIO.RISING, callback=changeMode) 
+GPIO.add_event_detect(20, GPIO.RISING, callback=changeMode)
 
 current_pumpkins_pressed = [False] * 12;
 
